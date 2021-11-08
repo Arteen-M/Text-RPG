@@ -308,7 +308,9 @@ while True:
         print("Game Saved")
     elif count > 1:  # Print when the data isn't saved
         print("Data not Saved")
-    user_input = input("")
+        
+    user_input = input("").lower()
+    
     if user_input != "" and "!" == user_input[0]:  # Requires commands to have ! at the beginning
         if not (user_input[1:7] == "create" or user_input[1:] == "tutorial") and username is None:
             print("You require a profile to do that command. Use !create profile or !tutorial to continue")
@@ -350,7 +352,7 @@ while True:
                     user_input = input("Please enter the name of your Guild: ")
                     guild_name = user_input.strip("!")
                     user_input = input("Are you sure? Y / N: ")
-                    if (user_input == "Y" or user_input == "y") and username is not None:
+                    if user_input == "y" and username is not None:
                         gold -= 10000
                         guild = guild_name
                         guild_name = None
