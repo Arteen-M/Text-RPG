@@ -3,8 +3,6 @@ import time
 from threading import Timer
 import sys
 
-sys.stdout.write("\033[0;32m")  # Colour the text green
-
 
 # List converter for level list only
 def Convert(string):
@@ -232,81 +230,46 @@ f.close()  # Closes the save data file
 random_attack_stat = random.randint(15, 50)  # Sets a random atk stat for the RNG blade
 
 # All the weapons
-vibe_checker = [25, 40, "VIBE CHECK"]
-hammer_sickle = [20, 30, "Dual wield Hammer and Sickle"]
-annoyance = [19, 21, "Keenan's Blade of Annoyance"]
 blade_of_logic = [1, 10, "Blade of Logic"]
-# noinspection SpellCheckingInspection
-tome_of_afima = [2, 15, "Tome of arch fi- I mean annoyance"]
-blade_of_anger = [3, 20, "Ethan's blade of anger"]
-facts_and_logic = [4, 5, "Facts and Logic"]
 charisma_hat = [5, 25, "Charisma + 50"]
-# noinspection SpellCheckingInspection
 crit_sword = [6, 20, "Critical hit blade"]
 RNG_blade = [7, random_attack_stat, "RNG blade of legend"]
-# noinspection SpellCheckingInspection
-MUDA = [8, 30, "MUDA MUDA MUDA MUDA"]
 beginner_blade = [17, 3, "Beginner sword"]
-ok_boomer = [22, 30, "Ok Boomer"]
-# noinspection SpellCheckingInspection
-microwave = [24, 5, "Microwave go MMMMMMM"]
-# noinspection SpellCheckingInspection
-doriyah = [27, 40, "DORIYAH"]
 spirit_sword = [30, 40, "Spirit Sword"]
 diamond_sword = [31, 30, "Diamond Sword"]
 stick = [32, 0, "Wimpy Stick"]
 banana_on_stick = [33, 5, "Banana on a Stick"]
 money_sword = [36, 5, "Money Sword"]
-# noinspection SpellCheckingInspection
-road = [41, 20, "RODA ROLLLLLAAAAA"]
 bojangles = [43, 45, "Bojangles Legendary Iced Tea"]
 
 # All the armor
-anti_vibe_check = [21, 40, "Vibe check immunity"]
 absolute_safety = [9, 40, "Absolute safety capsule"]
-anti_dead = [10, 25, "Anti Deader"]
-# noinspection SpellCheckingInspection
-ui_goku = [11, 30, "Ultra Instinct"]
-# noinspection SpellCheckingInspection
-deadnt = [12, 10, "Deadn't"]
+anti_dead = [10, 25, "Anti Dead"]
 uno_reverse = [13, 15, "UNO reverse Card"]
 mags_under = [14, 20, "Magazines under clothing"]
-no = [15, 20, "NO NO NO NO NO NO NO"]
-objection = [16, 40, "OBJECTION"]
 beginner_shield = [18, 3, "Beginner shield"]
-# noinspection SpellCheckingInspection
-ok_zoomer = [23, 15, "Ok Zoomer"]
-# noinspection SpellCheckingInspection
 diamond = [28, 40, "Diamond Chestplate"]
-# noinspection SpellCheckingInspection
-battle_armor = [29, 10, "Saiyan battle armor"]
+battle_armor = [29, 10, "Battle armor"]
 banana_shoes = [34, 5, "Banana Shoes"]
 banana_armor = [35, 20, "Full banana armor"]
 x_defense = [37, 20, "X Defense"]
-# noinspection SpellCheckingInspection
-roids = [38, 40, "(ste)ROIDS"]
 death_cheater = [39, 30, "Death Cheater"]
 guard = [40, 40, "Rebellions Guard"]
-well_yes_but_no = [42, 30, "Well yes but actually no"]
 
 # List of all words used in the combat
 defence_words = ["defend", "protect", "denied", "cover", "dodge", "shield", "armor", "secure", "resist", "deter",
                  "block", "support", "shelter", "fortify", "barricade", "screen", "safety", "cushion", "bunker"]
 
 # List of all the variable names of the weapons
-weapon_list = [beginner_blade, blade_of_logic, tome_of_afima, blade_of_anger, ok_boomer,
-               facts_and_logic, charisma_hat, crit_sword,
-               RNG_blade, MUDA, annoyance,
-               hammer_sickle, microwave, vibe_checker, doriyah, spirit_sword, diamond_sword,
-               stick, banana_on_stick, money_sword, road, bojangles]
+weapon_list = [beginner_blade, blade_of_logic,
+               charisma_hat, crit_sword,
+               RNG_blade, spirit_sword, diamond_sword,
+               stick, banana_on_stick, money_sword, bojangles]
 
 # List of all the variable names of the armors
-armor_list = [beginner_shield, absolute_safety, anti_dead, ui_goku, deadnt, uno_reverse, mags_under, no, objection,
-              anti_vibe_check, ok_zoomer, diamond, battle_armor, banana_shoes, banana_armor, x_defense, roids,
-              death_cheater, guard, well_yes_but_no]
-
-# noinspection SpellCheckingInspection
-boss_name_list = ["Bama", "Bamadou", "Balthier", "Alder"]
+armor_list = [beginner_shield, absolute_safety, anti_dead, uno_reverse, mags_under,
+              diamond, battle_armor, banana_shoes, banana_armor, x_defense,
+              death_cheater, guard]
 
 adventure = True  # Declares if you are on an adventure (If adventure is false, it means you're in an adventure)
 doubleAtk = False  # Declares if you chose the raise attack command
@@ -467,163 +430,8 @@ while True:
                 except ValueError:
                     print("That's not a number!")
                     user_input = input("What level of adventure do you want to go on? ")
-            """ if int(user_input) < 0 and level < 3 or not persist:
-                print("Don't try it")
-                time.sleep(2)
-                print("Seriously")
-                time.sleep(2)
-                print("You'll regret it")
-                time.sleep(2)
-                persist = True
-            elif int(user_input) < 0 and level > 2 and persist or mega_boss_factor:
-                print("I tried to warn you")
-                player_health = ((level ** 2) * 10) + 100
-                if guildT:
-                    print("Your guild can't help you now")
-                    time.sleep(1)
-                    print("They were slaughtered instantly")
-                    time.sleep(1)
-                while not adventure:
-                    if not adventure:
-                        time.sleep(2)
-                        enemy_level = level ** 2
-                        enemy_health = int(math.ceil((random.randint((enemy_level * 10), (enemy_level * 20))) * 1.75))
-                        enemy_dmg = (enemy_level * 20 + 1) - defense
-                        if not adventure:
-                            print("You encountered an enemy of level yes")
-
-                            while enemy_health > 0 and player_health > 0 and not adventure:
-                                user = True
-                                while not turn:
-                                    print(
-                                        "What will you do? (attack, raise defense, raise attack, "
-                                        "special, nueatcle v h( etan)cdaele)cncr")
-                                    turn = False
-                                    user_input2 = input("")
-                                    if user_input2 == "attack":
-                                        x = random.randint(15, 40)
-                                        print("The enemy has %d health" % enemy_health)
-                                        d = random.randint(atk, atk * 2)
-                                        if doubleAtk:
-                                            d *= 2
-                                            doubleAtk = False
-                                        if guildT:
-                                            if random.randint(0, 1) == 1:
-                                                d *= 2
-                                                print("Your guild doubled your damage output")
-                                        print("%d damage dealt" % d)
-                                        enemy_health -= d
-                                        if enemy_health <= 0:
-                                            print("The enemy has 0 health left")
-                                        else:
-                                            print("The enemy has %d health left" % enemy_health)
-                                        if enemy_health <= 0:
-                                            print("Please hit enter to continue")
-                                        turn = True
-                                    elif user_input2 == "raise defense":
-                                        enemy_dmg //= 2
-                                        print("You reduced the next attack by %50")
-                                        print("The enemy has %d health left" % enemy_health)
-                                        print("Kind of a useless move idiot")
-                                        turn = True
-                                    elif user_input2 == "raise attack":
-                                        print("Your attack has been raised for one turn")
-                                        print("I don't get it, why would you use such a useless command")
-                                        time.sleep(1)
-                                        print("Only an idiot would do such a thing")
-                                        time.sleep(1)
-                                        print("Oh wait, I do get it")
-                                        time.sleep(1)
-                                        print("Because you ARE an idiot")
-                                        time.sleep(1)
-                                        print("The enemy has %d health left" % enemy_health)
-                                        turn = True
-                                        doubleAtk = True
-                                    elif user_input2 == "special" and special_c2 - special > 0:
-                                        print("Special attack unleashed!")
-                                        special += 1
-                                        special_dmg = random.randint(atk * 2, atk * 4)
-                                        print("%d damage dealt" % special_dmg)
-                                        enemy_health -= special_dmg
-                                        if enemy_health <= 0:
-                                            print("The enemy has 0 health left")
-                                            print("Hit enter to continue")
-                                        else:
-                                            print("The enemy has %d health left" % enemy_health)
-                                        turn = True
-                                    elif user_input2 == "special" and special_c2 - special <= 0:
-                                        print("You have no more specials left, manage your resources better next time")
-                                    elif user_input2 == "cancel":
-                                        print("There is no escape")
-                                        continue
-                                    else:
-                                        print("That is not a proper command")
-                                        continue
-                                user = False
-                                if adventure:
-                                    user = True
-                                enemy_dmg = enemy_level * 20 + 1
-                                time.sleep(random.randint(2, 4))
-                                x = random.randint(0, len(defence_words) - 1)
-                                y = defence_words[x]
-                                if enemy_health > 0 and not adventure:
-                                    print("Please input: %s" % y)
-                                out_of_time = False
-                                start_time = time.time()
-
-
-                                def time_ran_out():
-                                    if not user and not adventure and turn:
-                                        print('You took full damage for being too slow')
-                                        print("Hit enter to continue")
-
-
-                                if not user and enemy_health > 0:
-                                    t = Timer(3, time_ran_out)
-                                    t.start()
-                                user_input3 = input("")
-                                if time.time() - start_time >= 3 and user_input3 != "" and user_input3 != y:
-                                    user_input3 = "garbage"
-                                if (user_input3 == "" or user_input3 != y) and enemy_health > 0:
-                                    out_of_time = True
-                                if user_input3 == y and not out_of_time and enemy_health > 0:
-                                    if time.time() - start_time <= 1.5:
-                                        print("Amazing, 5% damage received!")
-                                        enemy_dmg //= 20
-                                    else:
-                                        print("Amazing, 10% damage received!")
-                                        enemy_dmg //= 10
-                                    print("You took %d damage" % enemy_dmg)
-                                    player_health -= enemy_dmg
-                                    print("You have %d health remaining" % player_health)
-                                elif out_of_time and (
-                                        user_input3 == "" or user_input3 != y) and enemy_health > 0 and not adventure:
-                                    if user_input3 != y and user_input3 == "garbage":
-                                        print("You took full damage because you SUCK")
-                                    print("You took %d damage" % enemy_dmg)
-                                    player_health -= enemy_dmg
-                                    print("You have %d health remaining" % player_health)
-                                turn = False
-                            if enemy_health <= 0:
-                                print("Congratulations, you defeated an enemy!")
-                                exp += ((enemy_level * 100) + int(enemy_level ** 0.5) + int(enemy_level * 50)) ** 2
-                                gold += (enemy_level * 100 + int(enemy_level ** 0.5)) ** 2
-                                print("You received %d exp" % (
-                                    (((enemy_level * 100) + int(enemy_level ** 0.5)) + int(enemy_level * 50)) ** 2)
-                                      )
-                                print("You received %d gold" % ((enemy_level * 100 + int(enemy_level ** 0.5)) ** 2))
-                            time.sleep(1)
-                        if player_health <= 0 and not adventure:
-                            print("You died")
-                            adventure = True
-                            special_c2 = special_c
-                    adventure = True
-                if player_health > 0 and not adventure:
-                    print("You have completed the adventure, but at what cost")
-                    mega_boss_factor = True
-                    adventure = True
-                    special_c2 = special_c """
-            if True:  # Set to always run (el)
+            
+            if True:  # Set to always run
                 print("You went on an adventure!")  # Normal adventure
                 player_health = ((level ** 2) * 10) + 100  # Sets player health
                 progress_bar1 = int(user_input) + 1  # Printing a progress bar
@@ -776,45 +584,8 @@ while True:
                                     turn = False
                                 if enemy_health <= 0:
                                     print("Congratulations, you defeated an enemy!")
-                                    if weapon[0] == 25:
-                                        print("The enemy failed the vibe check.")
-                                        exp += ((enemy_level * 100) + int(enemy_level ** 0.5) + int(enemy_level * 50))
-                                        gold += (enemy_level * 100 + int(enemy_level ** 0.5))
-                                        print("You received %d exp" % (
-                                                ((enemy_level * 100) + int(enemy_level ** 0.5)) + int(enemy_level * 50))
-                                              )
-                                        print("You received %d gold" % (enemy_level * 100 + int(enemy_level ** 0.5)))
-                                        progress_bar = ((i / progress_bar1) * 100)
-                                        print("You have completed %.2f%% of the adventure" % float(progress_bar))
-                                        time.sleep(1)
-                                    elif weapon[0] == 22:
-                                        print(
-                                            "The enemy tried to take a last second lunge, your deadpan retort, "
-                                            "\"Ok boomer\"")
-                                        exp += ((enemy_level * 100) + int(enemy_level ** 0.5) + int(enemy_level * 50))
-                                        gold += (enemy_level * 100 + int(enemy_level ** 0.5))
-                                        print("You received %d exp" % (
-                                                ((enemy_level * 100) + int(enemy_level ** 0.5)) + int(enemy_level * 50))
-                                              )
-                                        print("You received %d gold" % (enemy_level * 100 + int(enemy_level ** 0.5)))
-                                        progress_bar = ((i / progress_bar1) * 100)
-                                        print("You have completed %.2f%% of the adventure" % float(progress_bar))
-                                        time.sleep(1)
-                                    elif weapon[0] == 20:
-                                        print("You defeated the enemy with the power of communism")
-                                        print("You were forced to share 10% of your gold and exp because of communism")
-                                        exp += int(((enemy_level * 100) + int(enemy_level ** 0.5)) +
-                                                   (enemy_level * 50) * 0.9)
-                                        gold += int((enemy_level * 100 + int(enemy_level ** 0.5)) * 0.9)
-                                        print("You received %.2f exp" % (
-                                            (((enemy_level * 100) + int(enemy_level ** 0.5)) + int(enemy_level * 50) *
-                                             0.9)))
-                                        print("You received %.2f gold" % (
-                                            (int(enemy_level * 100) + int(enemy_level ** 0.5) * 0.9)))
-                                        progress_bar = ((i / progress_bar1) * 100)
-                                        print("You have completed %.2f%% of the adventure" % float(progress_bar))
-                                        time.sleep(1)
-                                    elif weapon[0] == 32:
+
+                                    if weapon[0] == 32:
                                         exp += ((((enemy_level * 100) + int(enemy_level ** 0.5)) + int(enemy_level * 50)
                                                  ) * 2)
                                         gold += (enemy_level * 100 + int(enemy_level ** 0.5)) * 2
@@ -825,16 +596,6 @@ while True:
                                                 * 2))
                                         print("You received %d gold" % ((enemy_level * 100 + int(enemy_level ** 0.5))
                                                                         * 2))
-                                        progress_bar = ((i / progress_bar1) * 100)
-                                        print("You have completed %.2f%% of the adventure" % float(progress_bar))
-                                        time.sleep(1)
-                                    elif weapon[0] == 19:
-                                        print("You yelled in the enemy's ear until they committed suicide")
-                                        exp += ((enemy_level * 100) + int(enemy_level ** 0.5) + int(enemy_level * 50))
-                                        gold += (enemy_level * 100 + int(enemy_level ** 0.5))
-                                        print("You received %d exp" % (((enemy_level * 100) + int(enemy_level ** 0.5)) +
-                                                                       int(enemy_level * 50)))
-                                        print("You received %d gold" % (enemy_level * 100 + int(enemy_level ** 0.5)))
                                         progress_bar = ((i / progress_bar1) * 100)
                                         print("You have completed %.2f%% of the adventure" % float(progress_bar))
                                         time.sleep(1)
