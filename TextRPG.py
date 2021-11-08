@@ -132,6 +132,7 @@ try:
     f.close()
 except FileNotFoundError:
     f = open("TextRPGData.txt", "w")
+    reset()
     f.close()
 
 f = open("TextRPGData.txt", "r") # Opens text file (save data)
@@ -554,7 +555,7 @@ while True:
 
                                     def time_ran_out():
                                         if not user and not adventure and turn:
-                                            print('You took full damage for being too slow')
+                                            print(' You took full damage for being too slow')
                                             print("Hit enter to continue")
 
 
@@ -579,7 +580,7 @@ while True:
                                     elif out_of_time and (
                                             user_input3 == "" or user_input3 != y) and enemy_health > 0 and not adventure:
                                         if user_input3 != y and user_input3 == "garbage":
-                                            print("You took full damage because you misspelled the word")
+                                            print(" You took full damage because you misspelled the word")
                                         print("You took %d damage" % enemy_dmg)
                                         player_health -= enemy_dmg
                                         print("You have %d health remaining" % player_health)
