@@ -166,7 +166,7 @@ exp = int_extract(f420[8], "exp")
 
 exp_tnl = int_extract(f420[9], "exp_tnl")
 
-line = str_extract(f420[10], "line")  # Editors Note - CHECK IF NECESSARY!!
+line = str_extract(f420[10], "line")
 
 guild = str_extract(f420[11], "guild")
 
